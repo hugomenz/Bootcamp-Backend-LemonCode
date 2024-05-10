@@ -3,3 +3,4 @@ dist
 backup
 mongo-data
 TODO.md
+.env
