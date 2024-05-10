@@ -1,30 +1,21 @@
 import express from "express";
-import { addReviewToListing, getHouse, getListOfHouses } from "./mock-db.js";
+import { listingsApi } from "./listings.api.js";
 
 const app = express();
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("My awesome idealista portal");
+// middleware log  req url
+app.use(async (req, res, next) => {
+  console.log(req.url);
+  next();
 });
 
-app.get("/api/listings", async (req, res) => {
-  const listingList = await getListOfHouses();
-  res.send(listingList);
-});
+app.use("/api/listings", listingsApi);
 
-app.get("/api/listings/:id", async (req, res) => {
-  const { id } = req.params;
-  const listingId = id;
-  const listing = await getHouse(listingId);
-  res.send(listing);
-});
-
-app.post("/api/listings", async (req, res) => {
-  console.log(JSON.stringify(req.body));
-  const { _id, reviewer_id, reviewer_name, comments } = req.body;
-  const newReview = await addReviewToListing(_id, reviewer_id, reviewer_name, comments);
-  res.status(201).send(newReview);
+// middleware to  catch errors and log it by console
+app.use(async (error, req, res, next) => {
+  console.error(error);
+  res.sendStatus(500);
 });
 
 app.listen(3000, () => {
