@@ -10,6 +10,13 @@
     "type-check": "tsc --noEmit --preserveWatchOutput",
     "type-check:watch": "npm run type-check -- --watch"
   },
+  "imports": {
+    "#common/*": "./src/common/*",
+    "#common-app/*": "./src/common-app/*",
+    "#core/*": "./src/core/*",
+    "#dals/*": "./src/dals/*",
+    "#pods/*": "./src/pods/*"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

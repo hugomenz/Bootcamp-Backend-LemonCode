@@ -1,8 +1,9 @@
+import "#core/load-env.js";
+
 import express from "express";
 import { listingsApi } from "./listings.api.js";
-import { createRestApiServer } from "./core/servers/index.js";
-import { envConstants } from "./core/constants/index.js";
-import "./core/load-env.js";
+import { createRestApiServer } from "#core/servers/index.js";
+import { envConstants } from "#core/constants/index.js";
 
 const restApiServer = createRestApiServer();
 
