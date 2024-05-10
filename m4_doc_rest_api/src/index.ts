@@ -4,9 +4,9 @@ import { listingsApi } from "./listings.api.js";
 const app = express();
 app.use(express.json());
 
-// middleware log  req url
+// middleware log  method and req url
 app.use(async (req, res, next) => {
-  console.log(req.url);
+  console.log(`${req.method} ${req.url}`);
   next();
 });
 
