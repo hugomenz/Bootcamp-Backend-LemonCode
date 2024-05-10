@@ -1,3 +1,4 @@
+import { Listing } from "../index.js";
 import { ListingRepository } from "./listing.repository.js";
 
 export const dbRepository: ListingRepository = {
@@ -8,6 +9,9 @@ export const dbRepository: ListingRepository = {
     throw new Error("Not implemented");
   },
   addReviewToListing: async (_id: string, reviewer_id: string, reviewer_name: string, comments: string) => {
+    throw new Error("Not implemented");
+  },
+  updateHouseDetails: (id: string, updateData: Partial<Listing>) => {
     throw new Error("Not implemented");
   },
 };
