@@ -1,7 +1,7 @@
 import listingsAndReviews from "./data/listingsAndReviews.json" assert { type: "json" };
 import { Bathrooms, Review } from "./mock-db.models.js";
 
-type MockListing = {
+export interface MockListing {
   _id: string;
   name: string;
   description: string;
@@ -9,7 +9,7 @@ type MockListing = {
   beds: number;
   bathrooms: Bathrooms;
   reviews: Review[];
-};
+}
 
 let mockListingList: MockListing[] = listingsAndReviews.map((listing: MockListing) => ({
   _id: listing._id,

@@ -1,4 +1,4 @@
-export interface Root {
+export interface Listing {
   _id: string;
   listing_url: string;
   name: string;
