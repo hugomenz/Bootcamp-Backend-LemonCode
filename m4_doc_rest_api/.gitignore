@@ -2,6 +2,3 @@ node_modules
 dist
 backup
 mongo-data
-
-.prettierignore
-.prettierrc
